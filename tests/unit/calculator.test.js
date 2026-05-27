@@ -1,4 +1,9 @@
-import { add, subtract, calculate } from "../../src/calculator.js";
+import {
+  add,
+  subtract,
+  multiply,
+  calculate
+} from "../../src/calculator.js";
 
 describe("add", () => {
 
@@ -24,11 +29,26 @@ describe("subtract", () => {
 
 });
 
+describe("multiply", () => {
+
+  test("두 수를 곱한다", () => {
+    expect(multiply(3, 4)).toBe(12);
+  });
+
+  test("0과 곱하면 0이다", () => {
+    expect(multiply(100, 0)).toBe(0);
+  });
+
+});
+
 describe("calculate", () => {
 
   test("연산자 문자열로 알맞은 함수를 호출한다", () => {
     expect(calculate("add", 1, 2)).toBe(3);
+
     expect(calculate("subtract", 10, 3)).toBe(7);
+
+    expect(calculate("multiply", 3, 5)).toBe(15);
   });
 
   test("알 수 없는 연산자는 에러를 던진다", () => {
